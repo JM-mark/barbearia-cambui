@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbearia Cambuí | Barbearia em Campinas</title>
+<meta name="description" content="Barbearia Cambuí, tradição de 10 anos no bairro Cambuí, Campinas-SP. Atendimento por ordem de chegada. Nota 4.9 no Google.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23191512'/%3E%3Cpath d='M13,13 Q20,20 13,27 M27,13 Q20,20 27,27 M20,20 L28,20' stroke='%23C9A24B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          charcoal: '#191512',
+          charcoal2: '#221C17',
+          gold: '#C9A24B',
+          gold2: '#AC8635',
+          red: '#8B1E1E',
+          cream: '#F2EBDD',
+          creamdim: '#E7DCC4',
+          inktext: '#2A2118',
+          softtext: '#6E6153',
+        },
+        fontFamily: {
+          display: ['"Oswald"', 'sans-serif'],
+          sans: ['"Work Sans"', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #F2EBDD; }
+  .stars { letter-spacing: 2px; }
+  .texture {
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 2px, transparent 2px, transparent 14px);
+  }
+  .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 14px 30px -10px rgba(25,21,18,0.2); }
+  .fade-up { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+  ::selection { background: #C9A24B; color: #191512; }
+
+  /* --- barber pole animation --- */
+  .pole-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      #C0332C 0 18px,
+      #F2EBDD 18px 36px,
+      #26417A 36px 54px,
+      #F2EBDD 54px 72px
+    );
+    background-size: 100px 100px;
+    animation: poleSpin 2.2s linear infinite;
+  }
+  @keyframes poleSpin {
+    from { background-position: 0 0; }
+    to { background-position: 0 100px; }
+  }
+  @keyframes poleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .pole-float { animation: poleFloat 4.5s ease-in-out infinite; }
+</style>
+</head>
+<body class="font-sans text-inktext antialiased">
+
+<!--
+  AVISO PARA O DESENVOLVEDOR / RESPONSAVEL COMERCIAL:
+  Landing page de PROSPECCAO COMERCIAL para apresentar ao responsavel da
+  Barbearia Cambui. Ainda NAO e o site definitivo aprovado pelo cliente.
+
+  Motivo do projeto: o site atual (barbeariacambui.com.br) tem secoes
+  quebradas/vazias (a secao "Precos" nao exibe nenhum preco, o bloco de
+  Instagram nao carrega nenhum link real) - confirmado via inspecao direta
+  do site em producao antes de iniciar este projeto.
+
+  Dados reais coletados do Google Maps e do site oficial da propria
+  barbearia: nome, endereco, telefone/WhatsApp, horario, nota no Google,
+  tempo de mercado (10 anos), politica de atendimento (ordem de chegada,
+  sem agendamento) e formas de pagamento.
+
+  SERVICOS E PRECOS SAO PLACEHOLDER: o site atual nao lista nenhum preco
+  real (secao quebrada). Os servicos e valores abaixo foram criados apenas
+  para preencher o layout de forma realista, baseados nos servicos gerais
+  mencionados no site oficial (corte de cabelo e barba). Antes de publicar
+  como site final, e OBRIGATORIO substituir por precos reais confirmados
+  pelo responsavel da barbearia.
+-->
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 bg-charcoal/95 backdrop-blur border-b border-gold/15">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
+    <a href="#topo" class="flex items-center gap-2.5">
+      <svg width="32" height="32" viewBox="0 0 40 40" class="shrink-0">
+        <circle cx="20" cy="20" r="20" fill="#191512"/>
+        <path d="M13,13 Q20,20 13,27 M27,13 Q20,20 27,27 M20,20 L28,20" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="font-display font-semibold text-lg text-cream tracking-wide">BARBEARIA <span class="text-gold">CAMBUÍ</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-cream/70">
+      <a href="#servicos" class="hover:text-gold transition">Serviços</a>
+      <a href="#avaliacoes" class="hover:text-gold transition">Avaliações</a>
+      <a href="#local" class="hover:text-gold transition">Localização</a>
+    </nav>
+    <a href="https://wa.me/551932361881" target="_blank" rel="noopener"
+       class="bg-gold hover:bg-gold2 text-charcoal text-sm font-bold px-5 py-2.5 rounded-full transition">
+       WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="topo" class="relative bg-charcoal texture pt-32 pb-16 px-5 md:px-8 overflow-hidden">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+
+    <div class="text-center md:text-left">
+      <div class="fade-up inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-2 mb-8">
+        <span class="text-gold stars text-sm">★★★★★</span>
+        <span class="text-cream text-sm font-semibold">4.9 no Google</span>
+      </div>
+
+      <h1 class="fade-up font-display font-semibold text-cream leading-[1.05] mb-6" style="font-size:clamp(2.2rem,5.5vw,3.8rem)">
+        10 anos de tradição, do clássico ao <span class="text-gold">contemporâneo</span>.
+      </h1>
+
+      <p class="fade-up text-cream/70 text-base md:text-lg max-w-xl mx-auto md:mx-0 mb-10">
+        Cortes de cabelo e barba no coração do Cambuí. Atendimento por ordem de
+        chegada, sem complicação — é só chegar.
+      </p>
+
+      <div class="fade-up flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+        <a href="https://wa.me/551932361881" target="_blank" rel="noopener"
+           class="w-full sm:w-auto bg-gold hover:bg-gold2 text-charcoal font-bold text-base px-9 py-4 rounded-full transition shadow-lg shadow-gold/20">
+           Chamar no WhatsApp
+        </a>
+        <a href="#local"
+           class="w-full sm:w-auto border border-cream/25 hover:border-gold hover:text-gold text-cream/80 font-semibold text-base px-9 py-4 rounded-full transition">
+           Ver Endereço
+        </a>
+      </div>
+
+      <p class="fade-up text-cream/40 text-xs mt-8">Segunda a sexta, 10h às 20h · Sábados, 8h às 18h</p>
+    </div>
+
+    <!-- animated barber pole -->
+    <div class="fade-up flex justify-center md:justify-end">
+      <div class="pole-float flex flex-col items-center">
+        <div class="w-6 h-4 bg-gold2 rounded-t-md"></div>
+        <div class="pole-stripes w-16 h-56 rounded-full border-4 border-gold2 overflow-hidden shadow-2xl"></div>
+        <div class="w-6 h-4 bg-gold2 rounded-b-md"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section id="avaliacoes" class="bg-cream py-20 md:py-28 px-5 md:px-8">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="fade-up text-red text-sm font-bold tracking-wide mb-3">AVALIAÇÕES</p>
+    <div class="fade-up text-gold2 stars leading-none mb-3" style="font-size:clamp(1.8rem,5vw,2.8rem)">★★★★★</div>
+    <h2 class="fade-up font-display font-semibold leading-tight text-inktext mb-4" style="font-size:clamp(2rem,5.5vw,3.2rem)">
+      Nota 4.9 no Google.
+    </h2>
+    <p class="fade-up text-softtext max-w-lg mx-auto mb-12">
+      Dez anos de cortes impecáveis e atendimento que vira relação de confiança.
+    </p>
+
+    <div class="fade-up grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-12 text-left">
+      <div class="bg-white rounded-2xl p-6 border border-creamdim">
+        <p class="text-gold2 stars text-sm mb-3">★★★★★</p>
+        <p class="text-inktext text-sm leading-relaxed">"Ótimo atendimento, e o corte ficou exatamente do jeito que eu queria. Recomendo."</p>
+        <p class="text-softtext text-xs mt-3">Avaliação no Google</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-creamdim">
+        <p class="text-gold2 stars text-sm mb-3">★★★★★</p>
+        <p class="text-inktext text-sm leading-relaxed">"Rapaziada excelente. Gostei muito da experiência e pretendo voltar sempre."</p>
+        <p class="text-softtext text-xs mt-3">Avaliação no Google</p>
+      </div>
+    </div>
+
+    <a href="https://maps.app.goo.gl/AjqwLEV7RDsD5ufn9" target="_blank" rel="noopener"
+       class="fade-up inline-flex items-center gap-2 border-2 border-red text-red hover:bg-red hover:text-cream font-bold text-sm px-7 py-3.5 rounded-full transition">
+       Ver avaliações no Google
+    </a>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="bg-charcoal texture py-20 md:py-28 px-5 md:px-8">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="fade-up text-gold text-sm font-bold tracking-wide mb-3">POR QUE A CAMBUÍ</p>
+      <h2 class="fade-up font-display font-semibold leading-tight text-cream" style="font-size:clamp(2rem,5.5vw,3.2rem)">
+        Tradição de barbearia clássica, sem enrolação.
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+      <div class="fade-up card-hover bg-charcoal2 rounded-2xl p-6 border border-gold/10 text-center">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-cream mb-2">Ordem de chegada</h3>
+        <p class="text-cream/60 text-sm">Sem agendamento. É só chegar e aguardar sua vez.</p>
+      </div>
+      <div class="fade-up card-hover bg-charcoal2 rounded-2xl p-6 border border-gold/10 text-center">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-cream mb-2">10 anos de tradição</h3>
+        <p class="text-cream/60 text-sm">Uma década transformando o estilo do bairro Cambuí.</p>
+      </div>
+      <div class="fade-up card-hover bg-charcoal2 rounded-2xl p-6 border border-gold/10 text-center">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h2"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-cream mb-2">Pagamento flexível</h3>
+        <p class="text-cream/60 text-sm">Dinheiro, PIX, débito e crédito.</p>
+      </div>
+      <div class="fade-up card-hover bg-charcoal2 rounded-2xl p-6 border border-gold/10 text-center">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-cream mb-2">Ambiente acolhedor</h3>
+        <p class="text-cream/60 text-sm">Um espaço que recebe bem todo mundo, sem exceção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICOS E PRECOS -->
+<section id="servicos" class="bg-cream py-20 md:py-28 px-5 md:px-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="fade-up text-red text-sm font-bold tracking-wide mb-3">SERVIÇOS</p>
+      <h2 class="fade-up font-display font-semibold leading-tight text-inktext mb-4" style="font-size:clamp(2rem,5.5vw,3.2rem)">
+        Do corte clássico ao acabamento na régua.
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="fade-up card-hover bg-white rounded-2xl p-6 border border-creamdim flex items-center justify-between gap-4">
+        <div>
+          <h3 class="font-display font-semibold text-lg text-inktext">Corte de Cabelo</h3>
+          <p class="text-softtext text-sm">Do clássico ao contemporâneo.</p>
+        </div>
+        <span class="text-gold2 font-display font-semibold text-xl whitespace-nowrap">R$ 45</span>
+      </div>
+      <div class="fade-up card-hover bg-white rounded-2xl p-6 border border-creamdim flex items-center justify-between gap-4">
+        <div>
+          <h3 class="font-display font-semibold text-lg text-inktext">Barba</h3>
+          <p class="text-softtext text-sm">Desenho e acabamento na navalha.</p>
+        </div>
+        <span class="text-gold2 font-display font-semibold text-xl whitespace-nowrap">R$ 35</span>
+      </div>
+      <div class="fade-up card-hover bg-white rounded-2xl p-6 border border-creamdim flex items-center justify-between gap-4">
+        <div>
+          <h3 class="font-display font-semibold text-lg text-inktext">Corte + Barba</h3>
+          <p class="text-softtext text-sm">O combo completo.</p>
+        </div>
+        <span class="text-gold2 font-display font-semibold text-xl whitespace-nowrap">R$ 70</span>
+      </div>
+      <div class="fade-up card-hover bg-white rounded-2xl p-6 border border-creamdim flex items-center justify-between gap-4">
+        <div>
+          <h3 class="font-display font-semibold text-lg text-inktext">Sobrancelha</h3>
+          <p class="text-softtext text-sm">Alinhamento na navalha.</p>
+        </div>
+        <span class="text-gold2 font-display font-semibold text-xl whitespace-nowrap">R$ 15</span>
+      </div>
+      <div class="fade-up card-hover bg-white rounded-2xl p-6 border border-creamdim flex items-center justify-between gap-4">
+        <div>
+          <h3 class="font-display font-semibold text-lg text-inktext">Corte Infantil</h3>
+          <p class="text-softtext text-sm">Para os pequenos, com paciência.</p>
+        </div>
+        <span class="text-gold2 font-display font-semibold text-xl whitespace-nowrap">R$ 35</span>
+      </div>
+      <div class="fade-up card-hover bg-white rounded-2xl p-6 border border-creamdim flex items-center justify-between gap-4">
+        <div>
+          <h3 class="font-display font-semibold text-lg text-inktext">Pézinho</h3>
+          <p class="text-softtext text-sm">Acabamento rápido entre um corte e outro.</p>
+        </div>
+        <span class="text-gold2 font-display font-semibold text-xl whitespace-nowrap">R$ 20</span>
+      </div>
+    </div>
+
+    <p class="fade-up text-softtext/70 text-xs text-center mt-8">Valores sujeitos a alteração. Confirme pelo WhatsApp antes de vir.</p>
+  </div>
+</section>
+
+<!-- LOCALIZACAO -->
+<section id="local" class="bg-charcoal texture py-20 md:py-28 px-5 md:px-8">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="fade-up text-gold text-sm font-bold tracking-wide mb-3">LOCALIZAÇÃO</p>
+      <h2 class="fade-up font-display font-semibold leading-tight text-cream mb-6" style="font-size:clamp(2rem,5.5vw,3rem)">
+        Bairro Cambuí, Campinas.
+      </h2>
+      <div class="fade-up space-y-5 text-cream/70">
+        <div>
+          <p class="font-semibold text-cream">Endereço</p>
+          <p>R. Dr. Diogo Prado, 335 - Cambuí, Campinas - SP, 13024-210</p>
+        </div>
+        <div>
+          <p class="font-semibold text-cream">Horário</p>
+          <p>Segunda a sexta, 10h às 20h</p>
+          <p>Sábado, 8h às 18h · Domingo, fechado</p>
+        </div>
+        <div>
+          <p class="font-semibold text-cream">Telefone / WhatsApp</p>
+          <a href="https://wa.me/551932361881" target="_blank" rel="noopener" class="text-gold hover:text-red transition">(19) 3236-1881</a>
+        </div>
+      </div>
+      <div class="fade-up flex flex-wrap gap-4 mt-8">
+        <a href="https://wa.me/551932361881" target="_blank" rel="noopener"
+           class="bg-gold hover:bg-gold2 text-charcoal font-bold text-sm px-7 py-3.5 rounded-full transition">
+           Chamar no WhatsApp
+        </a>
+        <a href="https://maps.app.goo.gl/AjqwLEV7RDsD5ufn9" target="_blank" rel="noopener"
+           class="border-2 border-cream/20 hover:border-gold hover:text-gold text-cream font-bold text-sm px-7 py-3.5 rounded-full transition">
+           Ver no Google Maps
+        </a>
+      </div>
+    </div>
+    <div class="fade-up rounded-2xl overflow-hidden border border-gold/15 shadow-lg aspect-[4/3]">
+      <iframe
+        src="https://www.google.com/maps?q=R.+Dr.+Diogo+Prado,+335,+Cambui,+Campinas+-+SP&z=16&output=embed"
+        width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="bg-cream py-24 px-5 md:px-8 text-center">
+  <div class="max-w-2xl mx-auto">
+    <div class="fade-up text-gold2 stars mb-4" style="font-size:1.4rem">★★★★★</div>
+    <h2 class="fade-up font-display font-semibold leading-tight text-inktext mb-6" style="font-size:clamp(2rem,5.5vw,3.2rem)">
+      Bora dar um trato no visual?
+    </h2>
+    <p class="fade-up text-softtext mb-10">Ordem de chegada, todos os dias úteis e sábados. É só aparecer.</p>
+    <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/551932361881" target="_blank" rel="noopener"
+         class="w-full sm:w-auto bg-gold hover:bg-gold2 text-charcoal font-bold text-base px-9 py-4 rounded-full transition shadow-lg shadow-gold/20">
+         Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-charcoal py-8 px-5 text-center border-t border-gold/10">
+  <p class="text-cream/40 text-xs">Barbearia Cambuí · R. Dr. Diogo Prado, 335 - Cambuí, Campinas - SP</p>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
